@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+title: "Writing"
+description: "Shorter, more opinionated pieces on governance, group facilitation, and infrastructure — as we actually try them."
+eleventyExcludeFromCollections: true
+---
+<div class="section wrap">
+  <div class="section-head">
+    <h1>Writing</h1>
+  </div>
+  <p class="lede">
+    Notes, arguments, and updates — subscribe via the <a href="/feed.xml">Atom feed</a> if you'd rather not check back manually.
+  </p>
+
+  <ul class="entry-list">
+    {% for item in collections.articles %}
+    <li class="entry">
+      <h2 class="entry-title"><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
+      <p class="entry-meta">
+        <time datetime="{{ item.date | dateISO }}">{{ item.date | dateReadable }}</time>
+        {% for tag in item.data.tags %}{% if tag != "articles" %}<span class="tag">{{ tag }}</span>{% endif %}{% endfor %}
+      </p>
+      {% if item.data.summary %}<p class="entry-summary">{{ item.data.summary }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>

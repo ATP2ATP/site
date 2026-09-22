@@ -1,0 +1,60 @@
+{
+  "Governance & decision-making": [
+    {
+      "name": "Loomio",
+      "url": "https://www.loomio.com/",
+      "note": "Open-source proposal-and-discussion software built for consent-based group decisions."
+    },
+    {
+      "name": "Decidim",
+      "url": "https://decidim.org/",
+      "note": "Participatory democracy platform born out of Barcelona's municipal organizing, now used worldwide."
+    },
+    {
+      "name": "Sociocracy For All",
+      "url": "https://www.sociocracyforall.org/",
+      "note": "Plain-language resources on consent-based circle governance."
+    }
+  ],
+  "Mesh networking & infrastructure": [
+    {
+      "name": "Meshtastic",
+      "url": "https://meshtastic.org/",
+      "note": "Open-source firmware for cheap LoRa radios — off-grid encrypted text mesh."
+    },
+    {
+      "name": "Yggdrasil Network",
+      "url": "https://yggdrasil-network.github.io/",
+      "note": "Experimental encrypted IPv6 mesh routing overlay, works over existing internet or local links."
+    },
+    {
+      "name": "NYC Mesh",
+      "url": "https://www.nycmesh.net/",
+      "note": "Community-owned wireless internet network — a working example of neighbours running their own ISP."
+    }
+  ],
+  "Mutual aid & resource sharing": [
+    {
+      "name": "hOurworld",
+      "url": "https://www.hourworld.org/",
+      "note": "Free time-banking software and hosting for community exchange networks."
+    },
+    {
+      "name": "Library of Things",
+      "url": "https://www.libraryofthings.co.uk/",
+      "note": "Model and toolkit for running a physical tool/equipment-sharing library."
+    }
+  ],
+  "Federated & privacy-respecting platforms": [
+    {
+      "name": "Matrix.org",
+      "url": "https://matrix.org/",
+      "note": "Open, federated protocol for real-time chat — no single company owns the network."
+    },
+    {
+      "name": "Codeberg",
+      "url": "https://codeberg.org/",
+      "note": "Non-profit, community-run code forge built on Forgejo."
+    }
+  ]
+}

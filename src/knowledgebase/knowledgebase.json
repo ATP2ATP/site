@@ -1,0 +1,4 @@
+{
+  "layout": "layouts/guide.njk",
+  "tags": ["knowledgebase"]
+}

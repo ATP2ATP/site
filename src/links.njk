@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+title: "Links"
+description: "Projects and communities we trust and recommend, grouped by what they're for."
+eleventyExcludeFromCollections: true
+---
+<div class="section wrap">
+  <div class="section-head">
+    <h1>Webring &amp; recommendations</h1>
+  </div>
+  <p class="lede">
+    People and projects doing work we trust or have learned from. We link out on purpose — if something here fits your need better than we do, go use theirs. Suggest an addition on the <a href="/get-involved/">Get Involved</a> page.
+  </p>
+
+  {% for category, items in links %}
+  <div class="link-category">
+    <h3>{{ category }}</h3>
+    <div class="link-grid">
+      {% for item in items %}
+      <div class="link-card">
+        <a href="{{ item.url }}" rel="noopener">{{ item.name }}</a>
+        <p>{{ item.note }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</div>

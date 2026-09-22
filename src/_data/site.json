@@ -1,0 +1,14 @@
+{
+  "title": "ATP²",
+  "fullName": "All The Power To All The People",
+  "url": "https://allthepowertoallthepeople.world",
+  "description": "Tools and know-how for non-hierarchical community building — governance, infrastructure, and mutual aid, built to be shared and outgrown.",
+  "language": "en",
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Get Involved", "href": "/get-involved/" },
+    { "label": "Knowledgebase", "href": "/knowledgebase/" },
+    { "label": "Writing", "href": "/articles/" },
+    { "label": "Links", "href": "/links/" }
+  ]
+}

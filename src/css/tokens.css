@@ -1,0 +1,56 @@
+/*
+  DESIGN TOKENS — the one place the visual identity lives.
+
+  Palette: warm newsprint paper + soft black ink + a single spot colour,
+  in the spirit of risograph/duotone zine printing (one ink colour on
+  top of black, rather than a full palette). Keeps the black/white
+  halftone mark doing the visual heavy lifting, and gives the whole
+  site room to breathe as it's redesigned iteratively — change the
+  values below and every page updates.
+
+  Swap --color-accent-h/s/l first if you want to try a different spot
+  colour without hunting through the rest of the file.
+*/
+
+:root {
+  /* --- Paper & ink --- */
+  --color-paper: #edece6;
+  --color-paper-dim: #e2e0d6;
+  --color-ink: #17181a;
+  --color-ink-soft: #47484c;
+  --color-line: #c7c4b6;
+
+  /* --- Spot colour (riso "marine blue" by default) --- */
+  --color-accent-h: 205;
+  --color-accent-s: 82%;
+  --color-accent-l: 34%;
+  --color-accent: hsl(var(--color-accent-h) var(--color-accent-s) var(--color-accent-l));
+  --color-accent-dim: hsl(var(--color-accent-h) 45% 92%);
+  --color-accent-ink: #fbfbf9;
+
+  /* --- Status/utility (kept muted, not traffic-light saturated) --- */
+  --color-focus: var(--color-accent);
+
+  /* --- Type families ---
+     Falls back to strong system stacks if the self-hosted files in
+     /assets/fonts aren't present yet — see README for how to add them.
+     No third-party font CDN is called by default, so no visitor
+     request leaves the site for type. */
+  --font-display: "Big Shoulders", "Arial Narrow", "Helvetica Neue", sans-serif;
+  --font-body: "Public Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* --- Type scale (fluid, ~1.2 ratio) --- */
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.5vw, 1.5rem);
+  --step-2: clamp(1.5rem, 1.3rem + 1vw, 2.1rem);
+  --step-3: clamp(2rem, 1.6rem + 2vw, 3.2rem);
+  --step-4: clamp(2.6rem, 2rem + 3vw, 4.6rem);
+
+  /* --- Layout --- */
+  --measure: 66ch;
+  --gutter: clamp(1.25rem, 1rem + 2vw, 3rem);
+  --radius: 2px; /* deliberately near-flat — print, not app-chrome */
+
+  color-scheme: light;
+}

@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+---
+<article class="section wrap">
+  <p class="entry-meta">
+    <time datetime="{{ date | dateISO }}">{{ date | dateReadable }}</time>
+    {% if tags %}{% for tag in tags %}{% if tag != "articles" %}<span class="tag">{{ tag }}</span>{% endif %}{% endfor %}{% endif %}
+  </p>
+  <h1>{{ title }}</h1>
+  <div class="prose">
+    {{ content | safe }}
+  </div>
+</article>

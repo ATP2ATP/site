@@ -1,0 +1,16 @@
+{
+  "name": "atp2-site",
+  "version": "0.1.0",
+  "description": "allthepowertoallthepeople.world — tools for non-hierarchical community building",
+  "private": true,
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

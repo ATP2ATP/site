@@ -1,0 +1,42 @@
+---
+layout: layouts/base.njk
+eleventyExcludeFromCollections: true
+---
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>{{ site.fullName }}</h1>
+      <p class="lede">{{ site.description }}</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="/get-involved/">Get involved</a>
+        <a class="btn" href="/knowledgebase/">Browse the knowledgebase</a>
+      </div>
+    </div>
+    <img class="hero-mark" src="/assets/img/fist-spray-paint.png" alt="ATP² raised-fist mark">
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="prose">
+    <p>Most tools for organizing get built by companies that need you to keep coming back, need your data to be worth something, or need a hierarchy somewhere in the stack. ATP² starts from a different assumption: <strong>the more distributed decision-making is, the more resilient the thing you're building becomes.</strong></p>
+    <p>This site collects working knowledge — governance models, off-grid infrastructure, low-tech methods, and the tools that make coordinating without a boss easier — written to be used, argued with, and outgrown.</p>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="section-head">
+    <h2>Recently added</h2>
+  </div>
+  <ul class="entry-list">
+    {% for item in collections.recent %}
+    <li class="entry">
+      <h3 class="entry-title"><a href="{{ item.url }}">{{ item.data.title }}</a></h3>
+      <p class="entry-meta">
+        <time datetime="{{ item.date | dateISO }}">{{ item.date | dateReadable }}</time>
+        {% for tag in item.data.tags %}{% if tag != "knowledgebase" and tag != "articles" %}<span class="tag">{{ tag }}</span>{% endif %}{% endfor %}
+      </p>
+      {% if item.data.summary %}<p class="entry-summary">{{ item.data.summary }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
