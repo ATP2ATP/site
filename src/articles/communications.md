@@ -22,6 +22,18 @@ Notice that "someone reads the content of my messages" is often the *least* like
 
 Once you know what you're actually defending against, the tool question gets a lot easier to answer.
 
+## What kind of communication do you actually need?
+
+Before comparing tools, it's worth separating out what you're actually trying to do — because "communication" isn't one problem, and the tool that's right for one kind is often wrong for another.
+
+- **Broadcast (one-to-many, public-facing)** — event announcements, public statements, things meant to be read widely. This needs the widest possible reach and the least friction to receive, not the most privacy. The main risk here isn't exposure of content — it's public by design — it's exposing more about who's behind it, or who's engaging with it, than you meant to.
+- **Group coordination (many-to-many, ongoing)** — the day-to-day of running something: logistics, decisions, who's doing what. This is where most groups actually spend their time, and it needs persistence (a searchable history people can catch up on) and tolerance for asynchronous participation, since nobody's available all at once. Moderate privacy — internal, not secret — is usually enough.
+- **Real-time voice or video (synchronous)** — meetings, trainings, anything where back-and-forth needs to move faster than typing allows, or where tone and nuance matter. A live conversation is harder to misquote or screenshot out of context than text, but it also creates a moment where everyone's presence and timing is knowable in a way async text isn't.
+- **Sensitive small-group discussion (high-privacy)** — strategy, safety concerns, anything where a leak has real consequences for real people. This is where metadata protection and resistance to infiltration matter most, and where convenience should be the *last* thing you optimize for, not the first.
+- **Off-grid or infrastructure-denial** — situations where the internet or cell network is unavailable, unreliable, or deliberately cut. The tradeoff here isn't really about privacy at all — it's about what still works when nothing else does.
+
+None of this is about finding one tool that does everything. It's usually healthier for a group to use a different tool for each of these than to force one app to be the broadcast channel, the meeting space, and the place where sensitive planning happens — because the privacy and reach needs of those three things actively pull in opposite directions.
+
 ## What the corporate defaults offer
 
 Most groups default to whatever's already installed on everyone's phone: Slack or Discord for text, WhatsApp or Messenger for looser coordination, Zoom or Google Meet for video. That's not a mistake — it's the tools working exactly as designed.
@@ -74,3 +86,13 @@ A rough way to think about it, roughly in order of how much infrastructure and f
 5. **No trust in any available infrastructure, or infrastructure itself is compromised/unavailable** — Briar, or Meshtastic for fully offline.
 
 None of these tiers fix a group that hasn't talked honestly about who's in the room and what they're actually worried about. Pick the tool after that conversation, not instead of it — and remember that the conversation itself, held in person whenever it can be, is doing more for your group's security than any app on this list ever will.
+
+## Matching the tool to the group #2
+
+Map the tool to the *kind* of communication, not just to "how sensitive is this":
+
+1. **Broadcast** — whatever's easiest for the audience to receive. Reach matters more than op-sec here.
+2. **Group coordination** — a self-hosted Matrix (or Mattermost/Rocket.Chat) server is the sweet spot: real control, federation for reach, and a UX close enough to what people already know.
+3. **Synchronous voice/video** — self-hosted Jitsi or Mumble for groups that can run them; Signal for individuals who want a strong default with zero setup.
+4. **Sensitive small-group discussion** — SimpleX Chat, where metadata protection matters more than convenience.
+5. **Off-grid** — Briar, or Meshtastic for fully offline.

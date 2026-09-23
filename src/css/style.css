@@ -9,7 +9,7 @@
 
 /* --- Reset-ish --- */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body {
   margin: 0;
   background: var(--color-paper);
@@ -252,6 +252,33 @@ a.tag:hover, a.tag:focus-visible {
 }
 .callout ul { margin: 0.5em 0 0; }
 .lede-inline { font-size: var(--step-1); }
+
+/* --- Table of contents ---
+   Auto-built from an article/guide's h2/h3 headings (see the withToc
+   filter). Native <details>/<summary> gives the collapse behaviour with
+   no JS — it degrades to an always-visible list wherever that's not
+   supported. Jump-to-section links rely on the smooth scroll-behavior
+   set above, which already respects prefers-reduced-motion. */
+.toc {
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-paper-dim);
+  padding: 0.9rem 1.1rem;
+  margin: 1.4rem 0 1.8rem;
+  max-width: var(--measure);
+}
+.toc summary {
+  font-family: var(--font-display);
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+}
+.toc summary::marker { color: var(--color-ink-soft); }
+.toc-list { list-style: none; margin: 0.75rem 0 0; padding: 0; }
+.toc-item { padding-block: 0.2rem; }
+.toc-item.toc-level-3 { padding-left: 1.25rem; }
+.toc-item a { color: var(--color-ink); text-decoration: none; }
+.toc-item a:hover { color: var(--color-accent); }
 
 /* --- Footer --- */
 .site-footer {

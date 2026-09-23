@@ -7,7 +7,9 @@ layout: layouts/base.njk
     {% if tags %}{% for tag in tags %}{% if tag != "articles" %}<span class="tag">{{ tag }}</span>{% endif %}{% endfor %}{% endif %}
   </p>
   <h1>{{ title }}</h1>
+  {% set toc = content | withToc %}
+  {% if toc.items.length > 1 %}{% include "partials/toc.njk" %}{% endif %}
   <div class="prose">
-    {{ content | safe }}
+    {{ toc.html | safe }}
   </div>
 </article>

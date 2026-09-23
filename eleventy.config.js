@@ -30,6 +30,32 @@ module.exports = function (eleventyConfig) {
     return text.length > length ? text.slice(0, length).trim() + "…" : text;
   });
 
+  // Table of contents: given a rendered article/guide body, inject a
+  // stable id onto every <h2>/<h3> and return { html, items }, where items
+  // is a flat [{ level, text, slug }] list for rendering a "Contents" box.
+  // A regex pass rather than a full HTML parser — article/guide bodies are
+  // single-level markdown output, so this stays reliable without adding a
+  // dependency. Slugs reuse Eleventy's own built-in slugify filter, so a
+  // heading's anchor matches the same slugging already used for tag URLs.
+  eleventyConfig.addFilter("withToc", function (html) {
+    if (!html) return { html: html || "", items: [] };
+    const slugify = eleventyConfig.getFilter("slugify");
+    const seen = new Map();
+    const items = [];
+    const withIds = html.replace(/<h([23])([^>]*)>([\s\S]*?)<\/h\1>/g, (match, level, attrs, inner) => {
+      const text = inner.replace(/<[^>]+>/g, "").trim();
+      if (!text) return match;
+      let slug = slugify(text) || "section";
+      const count = seen.get(slug) || 0;
+      seen.set(slug, count + 1);
+      if (count > 0) slug = `${slug}-${count + 1}`;
+      items.push({ level: Number(level), text, slug });
+      const idAttr = attrs.includes(" id=") ? "" : ` id="${slug}"`;
+      return `<h${level}${idAttr}${attrs}>${inner}</h${level}>`;
+    });
+    return { html: withIds, items };
+  });
+
   // --- Collections ---
   // Knowledgebase: how-to / reference documents, newest first.
   eleventyConfig.addCollection("knowledgebase", (collectionApi) => {

@@ -1,0 +1,10 @@
+<nav class="toc" aria-label="Table of contents">
+  <details open>
+    <summary>Contents</summary>
+    <ol class="toc-list">
+      {% for item in toc.items %}
+      <li class="toc-item toc-level-{{ item.level }}"><a href="#{{ item.slug }}">{{ item.text }}</a></li>
+      {% endfor %}
+    </ol>
+  </details>
+</nav>
