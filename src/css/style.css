@@ -23,6 +23,25 @@ a { color: var(--color-accent); text-decoration-thickness: 1.5px; text-underline
 a:hover { color: var(--color-ink); }
 :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
 
+/* --- Grain overlay ---
+   A faint noise texture over the whole page, in keeping with the riso/zine
+   print identity rather than flat digital colour. Pure CSS + inline SVG —
+   no image asset, no extra network request. Fixed and pointer-events:none
+   so it never interferes with scrolling, selection, or clicks; opacity is
+   deliberately low so it reads as paper grain, not visible static. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC45IiBudW1PY3RhdmVzPSIyIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIiByZXN1bHQ9InQiLz48ZmVDb2xvck1hdHJpeCBpbj0idCIgdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNuKSIvPjwvc3ZnPg==");
+  background-repeat: repeat;
+  background-size: 180px 180px;
+}
+
 h1, h2, h3 {
   font-family: var(--font-display);
   font-weight: 700;
@@ -147,6 +166,16 @@ p { max-width: var(--measure); margin: 0 0 1.2em; }
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
+
+/* --- Homepage tightening ---
+   The mission statement is two short paragraphs; giving it the same
+   padding as a full section leaves a lot of dead air between the hero
+   and "Recently added". Pull it in so it reads as a continuation of the
+   hero rather than a separate stop. */
+.section-intro { padding-block: clamp(1.25rem, 2vw, 2rem); }
+.section-intro .prose p:last-child { margin-bottom: 0; }
+.section-recent { padding-top: clamp(1.5rem, 2.5vw, 2.5rem); }
+.section-recent .section-head { margin-bottom: 1rem; }
 
 /* --- Listing entries (knowledgebase / articles) --- */
 .entry-list { list-style: none; margin: 0; padding: 0; }
