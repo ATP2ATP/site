@@ -1,11 +1,24 @@
 @import url("tokens.css");
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-/* --- Optional self-hosted type ---
-   Files aren't included yet (no network access when this starter was
-   generated). Drop OFL-licensed woff2 files at these paths and the
-   @font-face rules below activate automatically — nothing else to
-   change. Until then, the system stacks in tokens.css carry the page. */
+/* @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap'); */
 
+@font-face {
+  font-family: "Big Shoulders";
+  src: url("/assets/fonts/big-shoulders-latin-700-normal.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Public Sans";
+  src: url("/assets/fonts/public-sans-latin-400-normal.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Public Sans";
+  src: url("/assets/fonts/public-sans-latin-600-normal.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
 
 /* --- Reset-ish --- */
 *, *::before, *::after { box-sizing: border-box; }
