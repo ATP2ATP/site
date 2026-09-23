@@ -12,13 +12,19 @@ eleventyExcludeFromCollections: true
     How-to documents for the infrastructure ATP² cares about — written so someone with no prior background can actually follow along. Contributions and corrections welcome; see <a href="/get-involved/">Get Involved</a>.
   </p>
 
+  {% if collections.knowledgebaseTags.length %}
+  <div class="tag-cloud">
+    {% for tag in collections.knowledgebaseTags %}<a class="tag" href="/knowledgebase/tags/{{ tag | slugify }}/">{{ tag }}</a>{% endfor %}
+  </div>
+  {% endif %}
+
   <ul class="entry-list">
     {% for item in collections.knowledgebase %}
     <li class="entry">
       <h2 class="entry-title"><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
       <p class="entry-meta">
         <time datetime="{{ item.date | dateISO }}">{{ item.date | dateReadable }}</time>
-        {% for tag in item.data.tags %}{% if tag != "knowledgebase" %}<span class="tag">{{ tag }}</span>{% endif %}{% endfor %}
+        {% for tag in item.data.tags %}{% if tag != "knowledgebase" %}<a class="tag" href="/knowledgebase/tags/{{ tag | slugify }}/">{{ tag }}</a>{% endif %}{% endfor %}
       </p>
       {% if item.data.summary %}<p class="entry-summary">{{ item.data.summary }}</p>{% endif %}
     </li>

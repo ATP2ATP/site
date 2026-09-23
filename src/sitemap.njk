@@ -1,0 +1,38 @@
+---
+eleventyExcludeFromCollections: true
+permalink: "/sitemap.xml"
+---<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}/get-involved/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}/knowledgebase/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}/articles/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}/links/</loc>
+  </url>
+  {% for item in collections.knowledgebase %}
+  <url>
+    <loc>{{ site.url }}{{ item.url }}</loc>
+    <lastmod>{{ item.date | dateISO }}</lastmod>
+  </url>
+  {% endfor %}
+  {% for item in collections.articles %}
+  <url>
+    <loc>{{ site.url }}{{ item.url }}</loc>
+    <lastmod>{{ item.date | dateISO }}</lastmod>
+  </url>
+  {% endfor %}
+  {% for tag in collections.knowledgebaseTags %}
+  <url>
+    <loc>{{ site.url }}/knowledgebase/tags/{{ tag | slugify }}/</loc>
+  </url>
+  {% endfor %}
+</urlset>

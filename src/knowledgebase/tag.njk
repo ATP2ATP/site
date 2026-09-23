@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+eleventyExcludeFromCollections: true
+pagination:
+  data: collections.knowledgebaseTags
+  size: 1
+  alias: tag
+permalink: "/knowledgebase/tags/{{ tag | slugify }}/"
+eleventyComputed:
+  title: "Tagged “{{ tag }}”"
+  description: "Knowledgebase guides tagged {{ tag }}."
+---
+<div class="section wrap">
+  <div class="section-head">
+    <h1>Tagged &ldquo;{{ tag }}&rdquo;</h1>
+  </div>
+  <p class="lede"><a href="/knowledgebase/">&larr; All guides</a></p>
+
+  <ul class="entry-list">
+    {% for item in collections.knowledgebase %}
+    {% if tag in item.data.tags %}
+    <li class="entry">
+      <h2 class="entry-title"><a href="{{ item.url }}">{{ item.data.title }}</a></h2>
+      <p class="entry-meta">
+        <time datetime="{{ item.date | dateISO }}">{{ item.date | dateReadable }}</time>
+        {% for t in item.data.tags %}{% if t != "knowledgebase" %}<a class="tag" href="/knowledgebase/tags/{{ t | slugify }}/">{{ t }}</a>{% endif %}{% endfor %}
+      </p>
+      {% if item.data.summary %}<p class="entry-summary">{{ item.data.summary }}</p>{% endif %}
+    </li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>

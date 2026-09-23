@@ -2,6 +2,7 @@ module.exports = function (eleventyConfig) {
   // --- Static passthrough (no build step needed for these) ---
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
 
   // --- Watch CSS for local dev ---
   eleventyConfig.addWatchTarget("src/css");
@@ -38,6 +39,20 @@ module.exports = function (eleventyConfig) {
   // Articles: blog-style writing, newest first.
   eleventyConfig.addCollection("articles", (collectionApi) => {
     return collectionApi.getFilteredByGlob("src/articles/*.md").sort((a, b) => b.date - a.date);
+  });
+
+  // Unique knowledgebase tags (excluding the structural "knowledgebase" tag
+  // every guide gets from knowledgebase.json), sorted alphabetically. Powers
+  // the tag pages under /knowledgebase/tags/ and the sitemap.
+  eleventyConfig.addCollection("knowledgebaseTags", (collectionApi) => {
+    const guides = collectionApi.getFilteredByGlob("src/knowledgebase/*.md");
+    const tags = new Set();
+    guides.forEach((guide) => {
+      (guide.data.tags || []).forEach((tag) => {
+        if (tag !== "knowledgebase") tags.add(tag);
+      });
+    });
+    return [...tags].sort();
   });
 
   // Recent: knowledgebase + articles combined, newest first, capped for the homepage.

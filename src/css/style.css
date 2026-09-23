@@ -176,8 +176,21 @@ p { max-width: var(--measure); margin: 0 0 1.2em; }
   padding: 0.1em 0.55em;
   font-size: 0.78rem;
   color: var(--color-ink-soft);
+  text-decoration: none;
+}
+a.tag:hover, a.tag:focus-visible {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
 }
 .entry-summary { color: var(--color-ink-soft); max-width: var(--measure); }
+
+/* --- Tag cloud (knowledgebase index) --- */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.6rem;
+}
 
 /* --- Links / webring page --- */
 .link-category { margin-bottom: 2.25rem; }

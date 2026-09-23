@@ -4,7 +4,7 @@ layout: layouts/base.njk
 <article class="section wrap">
   <p class="entry-meta">
     <time datetime="{{ date | dateISO }}">Last updated {{ date | dateReadable }}</time>
-    {% if tags %}{% for tag in tags %}{% if tag != "knowledgebase" %}<span class="tag">{{ tag }}</span>{% endif %}{% endfor %}{% endif %}
+    {% if tags %}{% for tag in tags %}{% if tag != "knowledgebase" %}<a class="tag" href="/knowledgebase/tags/{{ tag | slugify }}/">{{ tag }}</a>{% endif %}{% endfor %}{% endif %}
   </p>
   <h1>{{ title }}</h1>
   {% if summary %}<p class="lede lede-inline">{{ summary }}</p>{% endif %}
