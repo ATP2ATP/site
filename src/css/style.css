@@ -61,11 +61,26 @@ h1, h2, h3 {
   line-height: 1.05;
   letter-spacing: -0.01em;
   margin: 0 0 0.5em;
+  overflow-wrap: break-word;
 }
 h1 { font-size: var(--step-4); }
 h2 { font-size: var(--step-3); }
 h3 { font-size: var(--step-2); }
 p { max-width: var(--measure); margin: 0 0 1.2em; }
+
+/* --- Article/guide header alignment ---
+   .prose centers itself within .wrap (see below), but the title, byline,
+   summary, and materials callout above it were only ever width-capped,
+   never centered — so at wide viewports they sat flush against the left
+   edge while the body text below them was centered, producing a visible
+   stagger. Same measure, same centering, so the whole page reads as one
+   consistent column regardless of viewport width. */
+article.section > h1,
+article.section > .entry-meta {
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+.lede-inline { margin-inline: auto; }
 
 .wrap {
   max-width: 72rem;
@@ -261,7 +276,9 @@ a.tag:hover, a.tag:focus-visible {
   background: var(--color-accent-dim);
   padding: 1rem 1.25rem;
   border-radius: 0 var(--radius) var(--radius) 0;
-  margin: 1.5em 0;
+  max-width: var(--measure);
+  margin-block: 1.5em;
+  margin-inline: auto;
 }
 .callout ul { margin: 0.5em 0 0; }
 .lede-inline { font-size: var(--step-1); }
@@ -277,8 +294,9 @@ a.tag:hover, a.tag:focus-visible {
   border-radius: var(--radius);
   background: var(--color-paper-dim);
   padding: 0.9rem 1.1rem;
-  margin: 1.4rem 0 1.8rem;
   max-width: var(--measure);
+  margin-block: 1.4rem 1.8rem;
+  margin-inline: auto;
 }
 .toc summary {
   font-family: var(--font-display);
