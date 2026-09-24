@@ -1,11 +1,17 @@
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="/">
-      <img src="/assets/img/fist-spray-paint.png" alt="">
-      <span class="brand-name">{{ site.title }}</span>
-    </a>
+    <div class="site-header-row">
+      <a class="brand" href="/">
+        <img src="/assets/img/fist-spray-paint.png" alt="">
+        <span class="brand-name">{{ site.title }}</span>
+      </a>
+      <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="site-nav-list" hidden>
+        <span class="sr-only">Menu</span>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+      </button>
+    </div>
     <nav class="site-nav" aria-label="Primary">
-      <ul>
+      <ul id="site-nav-list">
         {% for item in site.nav %}
         <li><a href="{{ item.href }}"{% if page.url == item.href %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
         {% endfor %}
@@ -13,3 +19,4 @@
     </nav>
   </div>
 </header>
+<script src="/assets/js/nav.js" defer></script>
